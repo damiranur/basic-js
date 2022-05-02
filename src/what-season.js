@@ -14,10 +14,9 @@ const { NotImplementedError } = require('../extensions/index.js');
 function getSeason(date) {
   if (date === undefined) {
     return 'Unable to determine the time of year!';
+  } else if (Object.prototype.toString.call(date) !== '[object Date]') {
+    return 'Invalid date!';
   }
-  // if (date instanceof Date) {
-  //   return 'Invalid date!';
-  // }
   const month = date.getMonth();
   season = '';
   switch (month) {
